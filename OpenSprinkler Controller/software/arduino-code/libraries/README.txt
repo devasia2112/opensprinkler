@@ -2,6 +2,36 @@
 The list here documents updates to the OpenSprinkler library. Updates to specific programs are documented in each program folder.
 
 ===============================
+* Dec 15, 2014
+- Check in firmware 2.1.2 source code. This firmware fixed the following bugs in 2.1.1: 1) program data output (/jp) is incomplete when the number of programs is a multiple of 3 (likely a compiler bug); 2) incorrect handling of the SPACE character in program names. For details please refer to the development thread at https://github.com/OpenSprinkler/OpenSprinklerGen2.
+
+* Dec 2,  2014
+- Check in firmware 2.1.1 source code. This firmware fixed a few bugs in 2.1.0, and added support for radio frequency (RF) stations, support for per-station 'sequential' flag, water percentage logging, negative station delay time, hardware MAC address, and 'enable logging' option. For intermediate changes please refer to the development thread at https://github.com/OpenSprinkler/OpenSprinklerGen2.
+
+
+* Oct 22, 2014
+- Check in firmware 2.1.0 source code. This firmware is a major upgrade, adding features such as per-station water time, automatic weather-based water time adjustment, auto-detection of time zone and DST. For intermediate changes please refer to the development thread at https://github.com/OpenSprinkler/OpenSprinklerGen2.
+
+* Sep 3, 2014
+- Check in firmware 2.0.9 source code. This firmware fixes a major bug in 2.0.8 which causes issues when a SPACE character appears in the station name or location. This firmware also refined cache directives in the HTTP headers.
+
+* Aug  25, 2014
+- Check in firmware 2.0.8 source code. This firmware adds support for relay, logging rain sensor / rain delay status, and the default UI has been changed to Samer's mobile UI.
+
+* July 23, 2014
+- Check in firmware 2.0.7 source code. To compile the source code, you need to download the SdFat library (https://code.google.com/p/sdfatlib/) and install it to your arduino\libraries folder.
+
+* July 5, 2014
+- Check in firmware 2.0.7. This firmware improves SD card support by switching to use the Arduino SdFat lbirary, which eliminates the restriction of 2GB card and FAT16 formatting. With this firmware, you can use microSD card of any size, formatted to either FAT16 or FAT32. The SdFat library also supports creating sub-diectories.
+- Added watchdog timer to automatically restart the controller after a certain timeout (2 minutes by default).
+- Added support to auto-detect the number of expansion boards. Specifically, in the 'Options' page, the '# of exp boards' option now shows the number of auto-detected expansion boards.
+
+* June 13, 2014
+- Check in firmware 2.0.6. This firmware adds logging capability (requires a microSD card, 2GB or less, formatted to FAT16). The logging is supported by opensprinkler mobile app.
+  Technically, a log record is written to SD card every time a valve is closed. The record is written to a file named xxxx.txt where xxxx is the epoch time in days.
+  For example, all records generated on June 13, 2014 are written into 16234.txt. You can directly check the log file by http://x.x.x.x/16234.txt.
+- Minor improvement on the auto-reconnect feature to avoid controller getting stuck.
+
 * May 7, 2014
 - Check in firmware 2.0.5. This firmware adds per-station 'ignore rain' bit, which allows a station (including Master) to ignore rain delay / rain sensing. Note that this does not affect manual mode or run-once program -- in other words, when the controller is in manual mode or executing a run-once program, stations will run regardless of rain delay or ignore rain bit.
 
